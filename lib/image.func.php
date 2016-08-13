@@ -26,18 +26,18 @@ for($i=0;$i<$length;$i++){//遍历画出验证码
 	imagettftext($image, $size, $angle, $x, $y, $color, $fontfile, $text);//画出验证码
 }
 //填充干扰元素点
-$pixel=0;
+$pixel=20;
 if($pixel){
 	for($i=0;$i<$pixel;$i++){
 	imagesetpixel($image, mt_rand(0,$width-1), mt_rand(0,$height-1), $black);//画点函数
 	}
 }
 //填充干扰元素线
-$line=0;
+$line=20;
 if($line){
 	for($i=1;$i<$line;$i++){
 		$color=imagecolorallocate($image, mt_rand(50,90), mt_rand(80,200), mt_rand(90,180));
-		imageline($image, mt_rand(0,$width-1), mt_rand(0,$height-1), mt_rand(0,$width-1), mt_rand(0,$height-1), color);//划线函数
+		imageline($image, mt_rand(0,$width-1), mt_rand(0,$height-1), mt_rand(0,$width-1), mt_rand(0,$height-1), $color);//划线函数
 	}
 }
 header("content-type:image/gif");//发送原生的 HTTP 头,设置输出文件为gif图片

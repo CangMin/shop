@@ -43,5 +43,4 @@ function verifyImage($type = 1, $length = 4, $pixel = 0, $line = 0, $sess_name =
     imagedestory($image);//销毁一图像
 }
 
-verifyImage(1,4,10,5);
 ?>

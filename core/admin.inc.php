@@ -16,3 +16,12 @@ function checkLogined(){
         alertMes("请先登录","login.php");
     }
 }
+
+/**
+ * 注销管理员
+ */
+function logout(){
+    $_SESSION=array();
+    session_destroy();//销毁会话记录
+    header("location:login.php");//跳转至登录页
+}

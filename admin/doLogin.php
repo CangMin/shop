@@ -9,6 +9,7 @@ if($verify==$verify1){
     $row=checkAdmin($sql);
     if($row){
         $_SESSION['adminName']=$row['username'];
+        $_SESSION['adminId']=$row['id'];
         alertMes("登录成功","index.php");
     }else{
         alertMes("登录失败,重新登录","login.php");

@@ -23,6 +23,8 @@ checkLogined();//检测是否有管理员登录
             <?php
             if(isset($_SESSION['adminName'])){
                 echo $_SESSION['adminName'];
+            }elseif(isset($_COOKIE['adminName'])){
+                echo $_COOKIE['adminName'];
             }
             ?>
         </b>

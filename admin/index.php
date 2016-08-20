@@ -62,10 +62,33 @@ checkLogined();//检测是否有管理员登录
                         <dd><a href="#">测试内容你看着改</a></dd>
                     </dl>
                 </li>
+                <li>
+                    <h3><span onclick="show('menu5','change5')" id="change5">+</span>管理员管理</h3>
+                    <dl id="menu5" style="display:none;">
+                        <dd><a href="addAdmin.php" target="mainFrame">添加管理员</a></dd>
+                        <dd><a href="listAdmin.php" target="mainFrame">管理员列表</a></dd>
+                    </dl>
+                </li>
             </ul>
         </div>
     </div>
 
 </div>
+<script type="text/javascript">
+    function show(num,change){
+        var menu=document.getElementById(num);
+        var change=document.getElementById(change);
+        if(change.innerHTML=="+"){
+            change.innerHTML="-";
+        }else{
+            change.innerHTML="+";
+        }
+        if(menu.style.display=='none'){
+            menu.style.display='';
+        }else{
+            menu.style.display='none';
+        }
+    }
+</script>
 </body>
 </html>

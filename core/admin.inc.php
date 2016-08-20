@@ -34,3 +34,18 @@ function logout(){
     session_destroy();//销毁会话记录
     header("location:login.php");//跳转至登录页
 }
+
+/**
+ * 添加管理员
+ * @return string
+ */
+function addAdmin(){
+    $arr=$_POST;
+    $arr['password']=md5($_POST['password']);//对提交的密码加密
+    if(insert("shop_admin",$arr)){
+        $mes="添加成功!<br/><a href='addAdmin.php'>继续添加</a>|<a href='listAdmin.php'>查看管理员列表</a>";
+    }else{
+        $mes="添加失败!<br/><a href='addAdmin.php'>重新添加</a>";
+    }
+    return $mes;
+}

@@ -17,11 +17,12 @@ function connect(){
  * @return int
  */
 function insert($table,$array){
+    $con=connect();//获取数据库连接对象
     $keys=join(",",array_keys($array));
-    $vals="'".join(",",array_values($array))."'";
-    $sql="insert {$table}($keys) values({$vals})";
-    mysqli_query($sql);
-    return mysqli_insert_id();
+    $vals="'".join("','",array_values($array))."'";//注意分隔符为两个单引号加一逗号
+    $sql="insert into {$table}($keys) values({$vals})";
+    mysqli_query($con,$sql);
+    return mysqli_insert_id($con);
 }
 
 /**

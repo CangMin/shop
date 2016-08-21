@@ -1,10 +1,13 @@
 <?php
 require_once '../include.php';
-$act=$_REQUEST['act'];
+$act=$_REQUEST['act'];//获取操作类型
+$id=$_REQUEST['id'];//获取id,根据id确定编辑内容
 if($act=="logout"){
     logout();//注销管理员
 }elseif($act=="addAdmin"){
     $mes=addAdmin();//添加管理员
+}elseif($act=="editAdmin"){
+    $mes=editAdmin($id);
 }
 ?>
 <!doctype html>

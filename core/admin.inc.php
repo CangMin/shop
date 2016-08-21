@@ -59,3 +59,19 @@ function getAllAdmin(){
     $rows=fetchAll($sql);
     return $rows;
 }
+
+/**
+ * 编辑管理员
+ * @param $id
+ * @return string
+ */
+function editAdmin($id){
+    $arr=$_POST;
+    $arr['password']=md5($_POST['password']);
+    if(update('shop_admin',$arr,"id={$id}")){
+        $mes="编辑成功!<br/><a href='listAdmin.php'>查看管理员列表</a>";
+    }else{
+        $mes="编辑失败!<br/><a href='listAdmin.php'>请重新修改</a>";
+    }
+    return $mes;
+}

@@ -33,18 +33,19 @@ function insert($table,$array){
  * @return bool|int
  */
 function update($table,$array,$where=null){
+    $con=connect();
     foreach($array as $key=>$val){
-        if($str==null){
+        if(@$str==null){
             $sep="";
         }else{
             $sep=",";
         }
-        $str.=$sep.$key."='".$val."'";
+        @$str.=$sep.$key."='".$val."'";//@作用是去掉$str未定义Notice
     }
     $sql="update {$table} set {$str} ".($where==null?null:" where ".$where);
-    $result=mysqli_query($sql);
+    $result=mysqli_query($con,$sql);
     if($result){
-        return mysqli_affected_rows();
+        return mysqli_affected_rows($con);
     }else{
         return false;
     }

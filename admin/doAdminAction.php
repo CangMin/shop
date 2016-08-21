@@ -8,6 +8,8 @@ if($act=="logout"){
     $mes=addAdmin();//添加管理员
 }elseif($act=="editAdmin"){
     $mes=editAdmin($id);
+}elseif($act="delAdmin"){
+    $mes=delAdmin($id);
 }
 ?>
 <!doctype html>

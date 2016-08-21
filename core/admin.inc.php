@@ -75,3 +75,17 @@ function editAdmin($id){
     }
     return $mes;
 }
+
+/**
+ * 删除管理员
+ * @param $id
+ * @return string
+ */
+function delAdmin($id){
+    if(delete("shop_admin","id={$id}")){
+        $mes="删除成功!<br/><a href='listAdmin.php'>查看管理员列表</a>";
+    }else{
+        $mes="删除失败!<br/><a href='listAdmin.php'>请重新删除</a>";
+    }
+    return $mes;
+}

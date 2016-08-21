@@ -38,7 +38,7 @@ if(!$rows){
                 <td><input type="checkbox" id="c1" class="check"><label for="c1" class="label"><?php echo $row['id'];?></label></td>
                 <td><?php echo $row['username'];?></td>
                 <td><?php echo $row['email']?></td>
-                <td align="center"><input type="button" value="修改" class="btn" onclick="editAdmin(<?php echo $row['id'];?>);"><input type="button" value="删除" class="btn"  onclick=""></td>
+                <td align="center"><input type="button" value="修改" class="btn" onclick="editAdmin(<?php echo $row['id'];?>);"><input type="button" value="删除" class="btn"  onclick="delAdmin(<?php echo $row['id']?>)"></td>
             </tr>
         <?php endforeach;?>
         </tbody>
@@ -46,8 +46,13 @@ if(!$rows){
 </div>
 </body>
 <script type="text/javascript">
-function editAdmin(id){
-    window.location="editAdmin.php?id="+id;
-}
+    function editAdmin(id){
+        window.location="editAdmin.php?id="+id;
+    }
+    function delAdmin(id){
+        if(window.confirm("确定要删除?")){
+            window.location="doAdminAction.php?act=delAdmin&id="+id;
+        }
+    }
 </script>
 </html>

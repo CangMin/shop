@@ -58,10 +58,11 @@ function update($table,$array,$where=null){
  * @return int
  */
 function delete($table,$where=null){
+    $con=connect();
     $where=$where==null?null:" where ".$where;
     $sql="delete from {$table} {$where}";
-    mysqli_query($sql);
-    return mysqli_affected_rows();
+    mysqli_query($con,$sql);
+    return mysqli_affected_rows($con);
 }
 
 /**

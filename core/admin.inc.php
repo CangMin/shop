@@ -49,3 +49,13 @@ function addAdmin(){
     }
     return $mes;
 }
+
+/**
+ * 得到所有管理员
+ * @return array
+ */
+function getAllAdmin(){
+    $sql="select id,username,email from shop_admin";
+    $rows=fetchAll($sql);
+    return $rows;
+}

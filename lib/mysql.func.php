@@ -83,7 +83,8 @@ function fetchOne($sql,$result_type=MYSQLI_ASSOC){
  * @return array
  */
 function fetchAll($sql,$result_type=MYSQLI_ASSOC){
-    $sql=mysqli_query($sql);
+    $con=connect();
+    $result=mysqli_query($con,$sql);
     while(@$row=mysqli_fetch_array($result,$result_type)){
         $rows[]=$row;
     }

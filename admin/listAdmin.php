@@ -1,3 +1,10 @@
+<?php
+require_once '../include.php';
+$rows=getAllAdmin();
+if(!$rows){
+    alertMes("没有管理员,请添加","addAdmin.php");
+}
+?>
 <!doctype html>
 <html>
 <head>
@@ -25,13 +32,15 @@
         </tr>
         </thead>
         <tbody>
+        <?php foreach($rows as $row):?>
             <tr>
                 <!--这里的id和for里面的c1 需要循环出来-->
-                <td><input type="checkbox" id="c1" class="check"><label for="c1" class="label"></label></td>
-                <td>x</td>
-                <td>x</td>
+                <td><input type="checkbox" id="c1" class="check"><label for="c1" class="label"><?php echo $row['id'];?></label></td>
+                <td><?php echo $row['username'];?></td>
+                <td><?php echo $row['email']?></td>
                 <td align="center"><input type="button" value="修改" class="btn" onclick=""><input type="button" value="删除" class="btn"  onclick=""></td>
             </tr>
+        <?php endforeach;?>
         </tbody>
     </table>
 </div>

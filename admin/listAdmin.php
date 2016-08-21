@@ -17,7 +17,7 @@ if(!$rows){
 <div class="details">
     <div class="details_operation clearfix">
         <div class="bui_select">
-            <input type="button" value="添&nbsp;&nbsp;加" class="add"  onclick="">
+            <input type="button" value="添&nbsp;&nbsp;加" class="add"  onclick="addAdmin()">
         </div>
 
     </div>
@@ -46,6 +46,9 @@ if(!$rows){
 </div>
 </body>
 <script type="text/javascript">
+    function addAdmin(){
+        window.location="addAdmin.php";
+    }
     function editAdmin(id){
         window.location="editAdmin.php?id="+id;
     }
